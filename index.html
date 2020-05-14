@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="React - Getting Started" />
+    <meta name="author" content="Jefferson Mariano de Souza" />
+    <link rel="manifest" href="manifest.json" />
+
+    <title>React - Getting Started</title>
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/reveal.css" />
+    <link rel="stylesheet" href="css/theme/league.css" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/monokai.css" />
+    <style>
+      .reveal .slides section .fragment.current-only {
+        opacity: 1;
+        visibility: visible;
+        display: none;
+      }
+      .reveal .slides section .fragment.current-only.current-fragment {
+        display: block;
+      }
+
+      /* Solarized Light theme */
+      .line {
+        display: block;
+      }
+      .line.focus {
+        background: #fdf6e3;
+        color: #657b83;
+      }
+      .line.focus .hljs-comment,
+      .line.focus .hljs-quote {
+        color: #93a1a1;
+      }
+      .line.focus .hljs-keyword,
+      .line.focus .hljs-selector-tag,
+      .line.focus .hljs-addition {
+        color: #859900;
+      }
+      .line.focus .hljs-number,
+      .line.focus .hljs-string,
+      .line.focus .hljs-meta .hljs-meta-string,
+      .line.focus .hljs-literal,
+      .line.focus .hljs-doctag,
+      .line.focus .hljs-regexp {
+        color: #2aa198;
+      }
+      .line.focus .hljs-title,
+      .line.focus .hljs-section,
+      .line.focus .hljs-name,
+      .line.focus .hljs-selector-id,
+      .line.focus .hljs-selector-class {
+        color: #268bd2;
+      }
+      .line.focus .hljs-attribute,
+      .line.focus .hljs-attr,
+      .line.focus .hljs-variable,
+      .line.focus .hljs-template-variable,
+      .line.focus .hljs-class .hljs-title,
+      .line.focus .hljs-type {
+        color: #b58900;
+      }
+      .line.focus .hljs-symbol,
+      .line.focus .hljs-bullet,
+      .line.focus .hljs-subst,
+      .line.focus .hljs-meta,
+      .line.focus .hljs-meta .hljs-keyword,
+      .line.focus .hljs-selector-attr,
+      .line.focus .hljs-selector-pseudo,
+      .line.focus .hljs-link {
+        color: #cb4b16;
+      }
+      .line.focus .hljs-built_in,
+      .line.focus .hljs-deletion {
+        color: #dc322f;
+      }
+      .line.focus .hljs-formula {
+        background: #eee8d5;
+      }
+      .line.focus .hljs-emphasis {
+        font-style: italic;
+      }
+      .line.focus .hljs-strong {
+        font-weight: bold;
+      }
+
+      .yellow-slide .line.focus:nth-child(2) {
+        background: yellow;
+      }
+    </style>
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+    <!--[if lt IE 9]>
+      <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-background="img/react-einstein.jpeg" data-background-opacity="0.6">
+          <h1>React</h1>
+          <br />
+          <p>Jefferson Mariano de Souza</p>
+          <p><a href="https://github.com/studiojms" style="position: unset;"><img src="img/github.png" width="50" style="position: absolute; left: 35%; margin: unset; background: unset; border: unset; box-shadow: unset;"/>/studiojms</a></p>
+        </section>
+        <section data-background="img/react-einstein.jpeg" data-background-opacity="0.1">
+          <h2>O que é react?</h2>
+          <img src="img/react-logo.png" width="300" />
+          <p>
+              React é uma biblioteca que auxilia na construção de interfaces.
+          </p>
+          <aside class="notes">
+            <ul>
+              <li>Lib javascript</li>
+              <li>Foco em produtividade</li>
+            </ul>
+          </aside>
+        </section>
+        <section data-background="img/code.jpg" data-background-opacity="0.05">
+          <h2>História</h2>
+          <ul>
+            <li class="fragment">2011 - Criada por Jordan Walke (Facebook)</li>
+            <li class="fragment">2011 - Utilizada no mural de notícias</li>
+            <li class="fragment">2012 - Utilizada no Instagram</li>
+            <li class="fragment">2013 - Anunciada na JsConf (virou opensource)</li>
+            <li class="fragment">2015 - Surgimento do React Native</li>
+          </ul>
+        </section>
+        <section data-background="img/code.jpg" data-background-opacity="0.05">
+          <h2>Quem usa?</h2>
+          <img src="img/quem-usa-react.png" />
+          <aside class="notes">
+            <ul>
+              <li>netflix (app da tv é com react)</li>
+              <li>microsoft (live mail)</li>
+              <li>facebook, instagram, whatsapp</li>
+              <li>ifood</li>
+              <li>nubank</li>
+              <li>submarino, americanas</li>
+            </ul>
+          </aside>
+        </section>
+        <section data-background="img/code.jpg" data-background-opacity="0.05">
+          <h2>Para que serve?</h2>
+          <ul>
+            <li class="fragment">Criar interfaces</li>
+            <li class="fragment">Renderizar componentes</li>
+          </ul>
+          <aside class="notes">
+            <ul>
+              <li>Renderizar componentes</li>
+              <li>Coloca uma ordem no desenvolvimento, foco na camada de UI</li>
+              <li>Transforma código JSX em javascript</li>
+              <li>Rapidez no desenvolvimento</li>
+            </ul>
+          </aside>
+        </section>
+        <section data-background="img/code.jpg" data-background-opacity="0.05">
+          <h2>Vantagens</h2>
+          <ul>
+            <li class="fragment">Fácil de aprender</li>
+            <li class="fragment">Reaproveitamento de código</li>
+            <li class="fragment">Comunidade ativa</li>
+            <li class="fragment">Sintaxe amigável na construção de componentes (HTML)</li>
+            <li class="fragment">Grandes empresas utilizando</li>
+            <li class="fragment">É rápido</li>
+          </ul>
+        </section>
+        <section data-background="img/html.jpg" data-background-opacity="0.05">
+          <section>
+            <h2>Como ele funciona?</h2>
+            <p class="fragment">Virtual DOM</p>
+          </section>
+          <section>
+            <h2>O que é DOM?</h2>
+            <img class="fragment" src="img/DOM.png" />
+          </section>
+          <section>
+              <h2>Virtual DOM</h2>
+              <img class="fragment" src="img/virtual-dom.png" />
+          </section>
+        </section>
+        <section data-background="img/code.jpg" data-background-opacity="0.05">
+          <h2>Comparação: React vs JQuery</h2>
+          <section>
+              <img class="fragment" src="img/jquery-vs-react.png" height="500px" />
+          </section>
+          <section>
+              <h3>JQuery</h3>
+              <p>A manipulação do DOM (operação custosa) fica nas mãos do desenvolvedor</p>
+              <p class="fragment">Toda modificação dispara uma alteração no DOM</p>
+          </section>
+          <section>
+              <h3>React</h3>
+              <p>Otimiza a manipulação do DOM, alterando somente o necessário</p>
+              <p class="fragment">Alterações são enviadas em lote, minimizando impacto no DOM</p>
+          </section>
+          <section>
+              <img src="img/yeah.jpg" height="300px" />
+          </section>
+        </section>
+        <section data-background="img/code.jpg" data-background-opacity="0.05">
+          <section>
+            <h2>Sintaxe</h2>
+            <p class="fragment">A sintaxe mais utilizada para a criação de componentes em React é JSX</p>
+            <p style="color: yellow">
+              <span class="fragment ">JSX é uma extensão da sintaxe do JavaScript que lembra XML</span>
+            </p>
+            <aside class="notes">
+              <ul>
+                <li>Transforma código JSX em chamadas de função</li>
+                <li>Código REACT são chamadas de função React.createElement etc.</li>
+              </ul>
+            </aside>
+          </section>
+          <section data-markdown >
+            <script type="text/template">
+              ### Objetivo: Renderizar o código
+  
+              ```html
+              <div>
+                <h1>Bem vindo ao React!</h1>
+              </div>
+              ```
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              ### Com JSX
+              ```html
+              return (
+                <div>
+                  <h1>Bem vindo ao React!</h1>
+                </div>
+                );
+              ```
+              <span class="fragment" data-code-focus="2-4"></span>
+              <span class="fragment" data-code-focus="1,5"></span>
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              ### Sem JSX
+              ```js
+              return React.createElement('div', {},
+                React.createElement('h1', {}, 'Bem vindo ao React!')
+              );
+              ```
+              <span class="fragment" data-code-focus="2"></span>
+              <span class="fragment" data-code-focus="1-3"></span>
+  
+              Note: Composite Design Pattern
+            </script>
+          </section>        
+        </section>
+        <section data-background="img/lego.jpg" data-background-opacity="0.1">
+          <section>
+            <h2>React é baseado em componentes</h2>
+          </section>
+          <section>
+            <h2>Existem 2 tipos de componentes</h2>
+            <ul>
+              <li class="fragment">Functional</li>
+              <li class="fragment">Class</li>
+            </ul>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              ### Functional Component
+              ```js
+              import React from 'react';
+  
+              function Componente({ nome }) {
+                return (
+                  <div>Bem vindo {nome}!</div>
+                );
+              }
+              ```
+              <span class="fragment" data-code-focus="1"></span>
+              <span class="fragment" data-code-focus="3"></span>
+              <span class="fragment" data-code-focus="5"></span>
+  
+              Note: js function
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              ### Class Component
+              ```js
+              import React from 'react';
+  
+              class Componente extends React.Component {
+                constructor() {
+                  //...
+                }
+                
+                render() {
+                  return (
+                    <div>Bem vindo {this.props.nome}!</div>
+                  );
+                }
+              }
+              ```
+              <span class="fragment" data-code-focus="1"></span>
+              <span class="fragment" data-code-focus="3"></span>
+              <span class="fragment" data-code-focus="4-6"></span>
+              <span class="fragment" data-code-focus="8-12"></span>
+              <span class="fragment" data-code-focus="10"></span>
+  
+              Note: js function
+            </script>
+          </section>
+        </section>
+        <section data-background="img/code.jpg" data-background-opacity="0.05">
+          <section>
+            <h2>Propriedades</h2>
+            <ul>
+              <li class="fragment">Dados recebidos pelo componente</li>
+              <li class="fragment">Imutáveis</li>
+              <li class="fragment">Podem ser passadas de um componente para outro</li>
+              <li class="fragment">Acessível através do atributo props (this.props)</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Propriedades</h2>
+            <img src="img/props.png" />
+          </section>
+          <section>
+            <h2>Estado</h2>
+            <p>Dados gerenciados pelo componente</p>
+            <ul>
+              <li class="fragment">Mutável</li>
+              <li class="fragment">Acessível através do atributo state (this.state)</li>
+              <li class="fragment">Alterável através da função this.setState()</li>
+              <li class="fragment">Específico de cada componente (cada um tem o seu)</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Estado</h2>
+            <img src="img/component-state.png" />
+          </section>
+          <section>
+            <h2>React way</h2>
+            <img src="img/react-way.png" />
+          </section>
+        </section>
+        <section data-background="img/cliente-em-duvida.jpg" data-background-opacity="0.1">
+          <h2>E o que eu preciso pra usar react?</h2>
+        </section>
+        <section data-background="img/cliente-em-duvida.jpg" data-background-opacity="0.1">
+            <h2>Dependências</h2>
+            <ul>
+              <li class="fragment">nodejs (LTS)</li>
+              <small class="fragment">plataforma base</small>
+
+              <li class="fragment">yarn / npm</li>
+              <small class="fragment">npm duplicava dependencias (corrigido na versão 5)</small>
+              
+              <li class="fragment">nvm</li>
+              <small class="fragment">(Node Version Manager)</small>
+
+              <li class="fragment">babel</li>
+              <img class="fragment" src="img/babel-loader.png" />
+            </ul>
+        </section>
+        <section data-background="img/code.jpg" data-background-opacity="0.05">
+          <h2>Hands on - vamos brincar?</h2>
+        </section>
+        <section data-background="img/code.jpg" data-background-opacity="0.05">
+          <h3>Exercícios de fixação</h3>
+          <section>
+            <p>1. Criar um componente React que exiba uma mensagem de bem vindo + o seu nome.</p>
+            <p>Ex: "Bem vindo Jefferson"</p>
+          </section>
+          <section>
+            <p>2. Criar um componente React que exiba uma mensagem de bem vindo para o nome que for digitado em um input.</p>
+          </section>
+        </section>
+        <section data-background="img/css-makeup.jpg" data-background-opacity="0.15">
+          <h2>Estilização</h2>
+          <section>
+            <img class="fragment" src="img/html-css-compare.jpg" />
+          </section>
+          <section>
+            <h3>Espresso (Saturn V)</h3>
+            <a href="http://espresso.synchro.com.br">http://espresso.synchro.com.br</a>
+          </section>
+        </section>
+        <section data-background="img/code.jpg" data-background-opacity="0.05">
+          <h3>Exercícios de fixação</h3>
+          <section>
+            <p>3. To-do list</p>
+          </section>
+        </section>
+        <section>
+          <section data-background="img/react-flux.png">
+          </section>
+
+          <section data-background="img/react-flux.png" data-background-opacity="0.05">
+            <h2>História</h2>
+            <ul>
+              <li>Em 2014, problema com contagem de mensagens no facebook</li>
+            </ul>
+            <img src="img/facebook-bug.png" />
+          </section>
+
+          <section data-background="img/react-flux.png" data-background-opacity="0.05">
+            <h2>MVC</h2>
+            <img src="img/mvc.png" />
+
+            <aside class="notes">
+              <ul>
+                <li>Várias tentativas para corrigir o problema do contador de mensagens</li>
+                <li>Tentaram usar MVC, porém não foi a melhor solução</li>
+              </ul>
+            </aside>
+          </section>
+
+          <section data-background="img/react-flux.png" data-background-opacity="0.05">
+            <h2>Flux</h2>
+            <p>Arquitetura</p>
+
+            <img src="img/flux-fluxo.png" />
+            <aside class="notes">
+              <ul>
+                <li>Pode ser usado em qualquer aplicação JS (é apenas a arquitetura)</li>
+              </ul>
+            </aside>
+          </section>
+
+          <section data-background="img/react-flux.png" data-background-opacity="0.05">
+            <h2>Para que serve?</h2>
+            <p>Gerenciar os dados da aplicação</p>
+            <ul>
+              <li>entrada de dados do usuario</li>
+              <li>dados de uma api</li>
+              <li>ações do usuário</li>
+            </ul>
+            <p>Controlar como a aplicação deve se comportar com base na mudança destes dados</p>
+          </section>
+          <section data-background="img/flux-logo.jpg" data-background-opacity="0.2">
+            <h2>Quando devo usar?</h2>
+            <ul>
+              <li>Compartilhar estado entre componentes</li>
+              <li>Centralizar as regras de negócio da aplicação</li>
+              <li>Agir com efeitos colaterais</li>
+            </ul>
+            <aside class="notes">
+              <ul>
+                <li>informações transitam entre componentes</li>
+                <li>
+                  Efeito colateral: ação em um componente faz outro componente reagir (clique de um botão faz dados serem
+                  carregados)
+                </li>
+              </ul>
+            </aside>
+          </section>
+          <section data-background="img/flux-logo.jpg" data-background-opacity="0.2">
+            <img src="img/flux-architecture.png" />
+            <aside class="notes">
+              <ul>
+                <li>Action - Ação disparada (realizada pelo usuário ou não)</li>
+                <li>Dispatcher - item que recebe uma ação e chama a store</li>
+                <li>Store - repositório de dados</li>
+                <li>View - camada de apresentação</li>
+              </ul>
+            </aside>
+          </section>
+  
+          <section data-background="img/flux-logo.jpg" data-background-opacity="0.2">
+            <img src="img/sharing-state-store-2.gif" />
+          </section>
+  
+          <section data-background="img/flux-implementations-horizontal.jpg" data-background-opacity="0.2">
+            <h2>Implementações de Flux</h2>
+            <img src="img/flux-implementations-horizontal.jpg" height="500" />
+            <aside class="notes">
+              <ul>
+                <li>XState</li>
+                <li>Alt</li>
+                <li>Fluxxor</li>
+                <li>Reflux</li>
+                <li>Redux</li>
+                <li>Mobx</li>
+              </ul>
+            </aside>
+          </section>
+          <section data-background="img/code.jpg" data-background-opacity="0.2">
+              <h2>Mobx</h2>
+              <p>Facilita a implementação de flux</p>
+
+              <img src="img/mobx.png" height="400" />
+          </section>
+          <section data-background="img/code.jpg" data-background-opacity="0.2">
+              <h2>Mobx</h2>
+
+              <img src="img/mobx-fluxo.png" height="400" />
+          </section>
+          <section data-background="img/code.jpg" data-background-opacity="0.2">
+            <h2>Mobx</h2>
+
+            <img src="img/mobx_fluxo.png" height="400" />
+        </section>
+    </section>
+
+      <section data-background="img/code.jpg" data-background-opacity="0.2">
+          <h2>Usando Mobx com React</h2>
+          <section>
+              <img src="img/ReactMobx.png" height="400" />
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              ```js
+              import React from 'react';
+              import { observer } from 'mobx-react';
+
+              import ExemploStore from '../stores/ExemploStore';
+
+              @observer
+              class Exemplo extends React.Component {
+                constructor(props) {
+                  super(props);
+                  this.store = ExemploStore;
+                }
+
+                render() {
+                  return (<div>{this.store.exemplo}</div>);
+                }
+              } 
+              ```
+              <span class="fragment" data-code-focus="1"></span>
+              <span class="fragment" data-code-focus="2"></span>
+              <span class="fragment" data-code-focus="6"></span>
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              ```js
+              import { observable, action } from 'mobx';
+
+              class ExemploStore {
+                @observable exemplo = 'Teste';
+
+                @action
+                fazAlgumaCoisa() {
+                  this.exemplo = 'React!';
+                }
+              }
+
+              export default new ExemploStore(); 
+              ```
+              <span class="fragment" data-code-focus="1"></span>
+              <span class="fragment" data-code-focus="4"></span>
+              <span class="fragment" data-code-focus="6-9"></span>
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              ## Configuração
+              ```sh
+              yarn add mobx mobx-react
+              ```
+              ou
+              ```sh
+              npm install mobx mobx-react
+              ```
+              <span class="fragment" data-code-focus="1"></span>
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              ## Configuração
+              ```sh
+              {
+                "plugins": [
+                  ["@babel/plugin-proposal-decorators", { "legacy": true }],
+                  ["@babel/plugin-proposal-class-properties", { "loose": true }]
+                ]
+              }
+              ```
+              .babelrc
+              <span class="fragment" data-code-focus="3"></span>
+              <span class="fragment" data-code-focus="4"></span>
+            </script>
+          </section>
+          <section>
+            <h2>Configuração</h2>
+            <p>Usando create-react-app, usar: <a href="https://tombuyse.be/blog/using-mobx-decorators-in-create-react-app-v3">https://tombuyse.be/blog/using-mobx-decorators-in-create-react-app-v3</a></p>
+          </section>
+        </section>
+        <section data-background="img/play.jpg" data-background-opacity="0.2">
+          <h1>Mãos à obra</h1>
+        </section>
+        <section data-background="img/end.jpg" data-background-opacity="0.05">
+          <p>Apresentação disponível em: <a href="http://studiojms.github.io/react-getting-started-presentation">http://studiojms.github.io/react-getting-started-presentation</a></p>
+        </section>
+    </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+        transition: 'convex', // none/fade/slide/convex/concave/zoom
+        dependencies: [
+          {
+            src: 'plugin/markdown/marked.js',
+            condition: function() {
+              return !!document.querySelector('[data-markdown]');
+            },
+          },
+          {
+            src: 'plugin/markdown/markdown.js',
+            condition: function() {
+              return !!document.querySelector('[data-markdown]');
+            },
+          },
+          { src: 'plugin/highlight/highlight.js', async: true },
+          {
+            src: 'plugin/code-focus/reveal-code-focus.js',
+            async: true,
+            callback: function() {
+              RevealCodeFocus();
+            },
+          },
+          { src: 'plugin/search/search.js', async: true },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true },
+        ],
+      });
+    </script>
+  </body>
+</html>
